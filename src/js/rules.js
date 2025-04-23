@@ -34,13 +34,41 @@ const luzofonemaRules = [
 	{ pattern: /(?<![ln])h/gi, replacement: "" }
 ];
 
-/** Aplica todas as regras Luzofonema a um texto.
+/** Aplica todas as regras Luzofonema a um texto,
+ *  ignorando nomes próprios (palavras com maiúscula no meio da frase).
  *  @param {string} text - Texto original em português.
  *  @return {string} - Texto convertido para Luzofonema. */
 function convertToLuzofonema(text) {
-	let converted = text;
-	luzofonemaRules.forEach(rule => {
-		converted = converted.replace(rule.pattern, rule.replacement);
+	// Expressão para dividir por palavras mantendo pontuação e espaços
+	const parts = text.split(/(\s+|[.,!?]+)/);
+
+	let result = '';
+	let isStartOfSentence = true;
+
+	parts.forEach(part => {
+		// Verifica se é palavra (não espaço nem pontuação)
+		if (/^\w/.test(part)) {
+			// Se for início de frase ou tudo minúsculo, aplica regras
+			const isName = /^[A-ZÁÉÍÓÚÂÊÎÔÛÃÕÄËÏÖÜ]/.test(part);
+			if (isStartOfSentence || !isName) {
+				let converted = part;
+				luzofonemaRules.forEach(rule => {
+					converted = converted.replace(rule.pattern, rule.replacement);
+				});
+				result += converted;
+			} else {
+				result += part; // Mantém nome próprio
+			}
+			isStartOfSentence = false;
+		} else {
+			result += part;
+
+			// Se termina frase, a próxima palavra pode ser início de frase
+			if (/[.!?]\s*$/.test(part)) {
+				isStartOfSentence = true;
+			}
+		}
 	});
-	return converted;
+
+	return result;
 }
