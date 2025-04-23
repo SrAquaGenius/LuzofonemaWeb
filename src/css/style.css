@@ -1,0 +1,66 @@
+/* style.css */
+
+/* Estilo básico para o corpo da página */
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f4f4f9;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	margin: 0;
+	padding: 20px;
+}
+
+/* Título */
+h1 {
+	font-size: 2.5rem;
+	margin-bottom: 30px;  /* Espaçamento abaixo do título */
+}
+
+label {
+	margin-bottom: 15px;  /* Espaçamento abaixo do título */
+}
+
+/* Área de input */
+textarea {
+	width: 500px;  /* Aumentando a largura */
+	height: 150px; /* Aumentando a altura */
+	margin-bottom: 30px; /* Espaçamento abaixo do input */
+	padding: 15px;
+	font-size: 1.2rem;  /* Aumentando o tamanho da fonte */
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+
+/* Botão de conversão */
+button {
+	width: 200px;  /* Aumentando a largura do botão */
+	padding: 15px;
+	font-size: 1.2rem;  /* Aumentando o tamanho da fonte do botão */
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-bottom: 30px; /* Espaçamento abaixo do botão */
+}
+
+/* Estilo do botão ao passar o mouse */
+button:hover {
+	background-color: #45a049;
+}
+
+/* Área de resultado */
+#outputText {
+	width: 500px;  /* Aumentando a largura */
+	min-height: 100px;  /* Aumentando a altura mínima */
+	padding: 15px;
+	background-color: #e2e2e2;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	word-wrap: break-word;
+	box-sizing: border-box;
+}
