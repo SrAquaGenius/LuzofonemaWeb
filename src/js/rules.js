@@ -31,14 +31,17 @@ const luzofonemaRules = [
 	{ pattern: /(?<=[g])u(?=[e,i])/gi, replacement: "" },
 
 	// Queda do "h" se não for antecedido por "l" ou "n"
-	{ pattern: /(?<![ln])h/gi, replacement: "" }
+	{ pattern: /(?<![ln])h/gi, replacement: "" },
+
+	// Som nasal com "m" passar para som nasal com "n"
+	{ pattern: /(?<=[aeiou])m(?=[ pb])/gi, replacement: "n" }
 ];
 
 /** Aplica todas as regras Luzofonema a um texto,
  *  ignorando nomes próprios (palavras com maiúscula no meio da frase).
  *  @param {string} text - Texto original em português.
  *  @return {string} - Texto convertido para Luzofonema. */
-function convertToLuzofonema(text) {
+export function convertToLuzofonema(text) {
 	// Expressão para dividir por palavras mantendo pontuação e espaços
 	const parts = text.split(/(\s+|[.,!?]+)/);
 
@@ -72,3 +75,11 @@ function convertToLuzofonema(text) {
 
 	return result;
 }
+
+export function convertToPhonetic(word) {
+	// Simulação de conversão fonética (exemplo simples)
+	// Isso deve ser substituído pela lógica fonética real
+	if (word === 'quarto') return 'kwˈaɾ.tu';  // Exemplo para "quarto"
+	// Adicione mais regras fonéticas conforme necessário
+	return word;  // Retorna a palavra sem alteração caso não tenha regra fonética definida
+  }

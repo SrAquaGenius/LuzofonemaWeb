@@ -5,62 +5,75 @@ body {
 	font-family: Arial, sans-serif;
 	background-color: #f4f4f9;
 	display: flex;
-	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	height: 100vh;
 	margin: 0;
-	padding: 20px;
+}
+
+/* Container principal (#app) */
+#app {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	max-width: 1200px; /* Aumentei um pouco mais */
+	gap: 20px;
+	padding: 10px 10px; /* Pequeno espaço lateral para não colar */
+	box-sizing: border-box;
 }
 
 /* Título */
 h1 {
 	font-size: 2.5rem;
-	margin-bottom: 30px;  /* Espaçamento abaixo do título */
-}
-
-label {
-	margin-bottom: 15px;  /* Espaçamento abaixo do título */
+	margin-bottom: 20px;
+	text-align: center;
 }
 
 /* Área de input */
 textarea {
-	width: 500px;  /* Aumentando a largura */
-	height: 150px; /* Aumentando a altura */
-	margin-bottom: 30px; /* Espaçamento abaixo do input */
+	width: 98%; /* Quase toda a largura */
+	height: 180px;
 	padding: 15px;
-	font-size: 1.2rem;  /* Aumentando o tamanho da fonte */
+	font-size: 1.2rem;
 	border: 1px solid #ccc;
 	border-radius: 5px;
 	box-sizing: border-box;
 }
 
-/* Botão de conversão */
+/* Botões */
 button {
-	width: 200px;  /* Aumentando a largura do botão */
+	width: 220px;
 	padding: 15px;
-	font-size: 1.2rem;  /* Aumentando o tamanho da fonte do botão */
+	font-size: 1.2rem;
 	background-color: #4CAF50;
 	color: white;
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
-	margin-bottom: 30px; /* Espaçamento abaixo do botão */
 }
 
-/* Estilo do botão ao passar o mouse */
 button:hover {
 	background-color: #45a049;
 }
 
-/* Área de resultado */
-#outputText {
-	width: 500px;  /* Aumentando a largura */
-	min-height: 100px;  /* Aumentando a altura mínima */
-	padding: 15px;
-	background-color: #e2e2e2;
+/* Divs de texto (original e convertido) */
+div {
+	width: 98%;
+	padding: 20px;
+	background-color: #f7f7f7; /* Um cinzento ainda mais clarinho */
 	border: 1px solid #ccc;
 	border-radius: 5px;
 	word-wrap: break-word;
 	box-sizing: border-box;
+	font-size: 1.1rem;
+	white-space: pre-wrap;
+}
+
+/* Estilo extra para o texto fixo dentro dos divs */
+div strong {
+	display: block;
+	margin-bottom: 10px;
+	font-weight: bold;
 }
